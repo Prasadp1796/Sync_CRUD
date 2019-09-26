@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../Partials/head.ejs%>
+    <title>Edit User <%-User.FirstName%> <%- User.LastName%></title>
+</head>
+
+<body class="animsition">
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <%include ../Partials/mobileHeader.ejs%>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <%include ../Partials/menu.ejs%>
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <%include ../Partials/desktopHeader.ejs%>
+        <!-- HEADER DESKTOP-->
+
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header bg-flat-color-3">
+                            <div class="row">
+                                <div class="col text-white">
+                                    <h4 class="text-white text-center">Edit User</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="/editUserDetails">
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="FirstName">First Name</label>
+                                        <input type="hidden" name="_id" value="<%-User._id%>">
+                                        <input type="text" name="FirstName" id="FirstName" class="form-control" value="<%-User.FirstName%>">
+                                    </div>
+
+                                    <div class="form-group col">
+                                        <label for="MiddleName">Middle Name</label>
+                                        <input type="text" name="MiddleName" id="MiddleName" class="form-control" value="<%-User.MiddleName%>">
+                                    </div>
+
+                                    <div class="form-group col">
+                                        <label for="LastName">Last Name</label>
+                                        <input type="text" name="LastName" id="LastName" class="form-control" value="<%-User.LastName%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="EmailID">Email ID</label>
+                                        <input type="email" class="form-control" id="EmailID" name="EmailID" value="<%-User.EmailID%>">
+                                    </div>
+
+                                    <div class="form-group col">
+                                        <label for="Contact">Contact Number</label>
+                                        <input type="text" class="form-control" id="Contact" name="Contact" value="<%-User.Contact%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-warning mx-auto text-white"><i class="fa fa-edit text-white"></i> Edit User</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+    </div>
+
+</div>
+
+
+<%include ../Partials/bodyScripts.ejs%>
+</body>
+
+</html>
+<!-- end document-->

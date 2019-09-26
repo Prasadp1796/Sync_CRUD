@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../Partials/head.ejs%>
+    <title>Manage Users</title>
+</head>
+
+<body class="animsition">
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <%include ../Partials/mobileHeader.ejs%>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <%include ../Partials/menu.ejs%>
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <%include ../Partials/desktopHeader.ejs%>
+        <!-- HEADER DESKTOP-->
+
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Manage Users</h4>
+                                </div>
+                                <div class="col">
+                                    <a href="/addUser" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add User</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive m-b-40">
+                                <table class="table table-bordered text-center text-nowrap">
+                                    <thead class="bg-primary">
+                                    <tr class="text-white">
+                                        <td>#</td>
+                                        <td>First Name</td>
+                                        <td>Middle Name</td>
+                                        <td>Last Name</td>
+                                        <td>Email ID</td>
+                                        <td>Contact</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%for(var i=0; i<Users.length; i++){%>
+                                            <tr>
+                                                <td><%-i+1%></td>
+                                                <td><%-Users[i].FirstName%></td>
+                                                <td><%-Users[i].MiddleName%></td>
+                                                <td><%-Users[i].LastName%></td>
+                                                <td><%-Users[i].EmailID%></td>
+                                                <td><%-Users[i].Contact%></td>
+                                                <td>
+                                                    <a href="/editUser?UserId=<%-Users[i]._id%>" class="btn btn-warning"><i class="fa fa-edit text-white"></i> </a>
+                                                    <a href="/deleteUser?UserId=<%-Users[i]._id%>" class="btn btn-danger"><i class="fa fa-trash text-white"></i> </a>
+                                                </td>
+                                            </tr>
+                                        <%}%>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+    </div>
+
+</div>
+
+
+<%include ../Partials/bodyScripts.ejs%>
+</body>
+
+</html>
+<!-- end document-->
